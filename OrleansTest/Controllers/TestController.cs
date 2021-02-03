@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using GrainInterfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Orleans;
-using OrleansTest.Grain;
 using System;
 using System.Collections.Generic;
 using System.Linq;

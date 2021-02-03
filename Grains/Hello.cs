@@ -1,15 +1,10 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using GrainInterfaces;
+using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
-namespace OrleansTest.Grain
+namespace Grains
 {
-    public interface IHello : Orleans.IGrainWithIntegerKey
-    {
-        Task<string> SayHello(string greeting);
-    }
     public class HelloGrain : Orleans.Grain, IHello
     {
         private readonly ILogger _logger;

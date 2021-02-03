@@ -7,9 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Orleans.Hosting;
-using Orleans.Configuration;
-using System.Net;
-using OrleansTest.Grain;
+using Grains;
 
 namespace OrleansTest
 {
@@ -29,7 +27,7 @@ namespace OrleansTest
                 .UseOrleans(siloBuilder =>
                 {
                     siloBuilder
-                    //.ConfigureApplicationParts(apm => apm.AddApplicationPart(typeof(IHello).Assembly).WithReferences())
+                    //.ConfigureApplicationParts(apm => apm.AddApplicationPart(typeof(HelloGrain).Assembly).WithReferences())
                     .UseLocalhostClustering();
                 })
                 .ConfigureLogging(logging =>
