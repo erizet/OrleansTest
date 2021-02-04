@@ -13,6 +13,9 @@ namespace OrleansTest
 {
     public class Program
     {
+        private static string _connectionString =
+    @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=OrleansTest;Integrated Security=True;Pooling=False;Max Pool Size=200;MultipleActiveResultSets=True";
+
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
@@ -26,9 +29,19 @@ namespace OrleansTest
                 })
                 .UseOrleans(siloBuilder =>
                 {
+
                     siloBuilder
-                    //.ConfigureApplicationParts(apm => apm.AddApplicationPart(typeof(HelloGrain).Assembly).WithReferences())
                     .UseLocalhostClustering();
+
+                    //siloBuilder.AddMemoryGrainStorage("counter");
+
+                    //                    siloBuilder.AddAdoNetGrainStorageAsDefault(options =>
+                    siloBuilder.AddAdoNetGrainStorage("counter", options =>
+                    {
+                        options.Invariant = "System.Data.SqlClient";
+                        options.ConnectionString = _connectionString;
+                        options.UseJsonFormat = true;
+                    });
                 })
                 .ConfigureLogging(logging =>
                 {
