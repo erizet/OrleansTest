@@ -14,7 +14,7 @@ namespace OrleansTest
     public class Program
     {
         private static string _connectionString =
-    @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=OrleansTest;Integrated Security=True;Pooling=False;Max Pool Size=200;MultipleActiveResultSets=True";
+    @"Server=localhost\SQLEXPRESS;Database=OrleansTest;Trusted_Connection=True;";
 
         public static void Main(string[] args)
         {
